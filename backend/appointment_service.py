@@ -3,13 +3,21 @@ import json
 import os
 
 def load_mock_data():
-    """Load mock data from shared JSON file"""
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    mock_data_path = os.path.join(current_dir, '..', 'shared', 'mockData.json')
-    
-    with open(mock_data_path, 'r') as f:
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    mock_data_path = os.path.join(
+        base_dir,
+        'frontend',
+        'src',
+        'data',
+        'mockData.json'
+    )
+
+    if not os.path.exists(mock_data_path):
+        raise FileNotFoundError(f"Mock data not found at {mock_data_path}")
+
+    with open(mock_data_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
-    
+
     return data['appointments'], data['doctors']
 
 MOCK_APPOINTMENTS, MOCK_DOCTORS = load_mock_data()

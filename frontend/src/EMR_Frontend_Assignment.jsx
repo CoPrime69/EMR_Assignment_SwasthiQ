@@ -55,7 +55,6 @@ const CalendarDayView = () => {
     const handleSaveEvent = (formData) => {
         console.log('Saving event:', formData);
         setIsPanelOpen(false);
-        // In production, this would update the backend
     };
 
     const handleClosePanel = () => {
