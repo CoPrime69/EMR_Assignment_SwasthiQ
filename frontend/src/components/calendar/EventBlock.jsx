@@ -38,7 +38,7 @@ export const EventBlock = ({ event, onClick }) => {
                 right: '0',
                 zIndex: 1
             }}
-            className={`${getEventColor()} rounded-lg p-3 text-white cursor-pointer hover:opacity-90 transition-opacity shadow-sm`}
+            className={`${getEventColor()} rounded-lg p-3 text-white cursor-pointer hover:opacity-90 transition-opacity shadow-sm flex flex-col justify-center`}
         >
             <div className="font-medium text-sm">{event.reason}</div>
             <div className="text-xs opacity-90 mt-0.5">{event.name}</div>
